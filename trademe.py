@@ -33,12 +33,10 @@ def find_minimum_price(string: int, start_price=1_000_000) -> int:
     print(f"Searching for lowest price...")
 
     price_max = start_price
-    step = 100_000
 
-    while step > 1_000:
+    for step in [100_000, 50_000, 10_000, 5_000, 1_000]:
         while house_in_pricerange(string, price_min=0, price_max=price_max - step):
             price_max -= step
-        step = int(step / 2)
 
     print(f"Property: {string}")
     print(f"Price:    {price_max}")
